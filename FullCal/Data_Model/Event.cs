@@ -14,14 +14,14 @@ namespace FullCal.Data_Model
     
     public partial class Event
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public Nullable<bool> AllDay { get; set; }
-        public string Start { get; set; }
-        public string End { get; set; }
-        public string Url { get; set; }
-        public Nullable<bool> Editable { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> EventId { get; set; }
+        public int eventId { get; set; }
+        public string title { get; set; }
+        public Nullable<bool> allDay { get; set; }
+        public string start { get; set; }
+        public string end { get; set; }
+        public string url { get; set; }
+        public Nullable<bool> editable { get; set; }
+        public string description { get; set; }
+        public Nullable<int> id { get; set; }
     }
 }

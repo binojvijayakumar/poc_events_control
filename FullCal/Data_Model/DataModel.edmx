@@ -7,17 +7,17 @@
     <Schema Namespace="appdataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Events">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="eventId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" />
-          <Property Name="AllDay" Type="bit" />
-          <Property Name="Start" Type="nvarchar" MaxLength="50" />
-          <Property Name="End" Type="nvarchar" MaxLength="50" />
-          <Property Name="Url" Type="nvarchar" MaxLength="150" />
-          <Property Name="Editable" Type="bit" />
-          <Property Name="Description" Type="nvarchar" MaxLength="250" />
-          <Property Name="EventId" Type="int" />
+          <Property Name="eventId" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="150" />
+          <Property Name="allDay" Type="bit" />
+          <Property Name="start" Type="nvarchar" MaxLength="50" />
+          <Property Name="end" Type="nvarchar" MaxLength="50" />
+          <Property Name="url" Type="nvarchar" MaxLength="150" />
+          <Property Name="editable" Type="bit" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" />
+          <Property Name="id" Type="int" />
         </EntityType>
         <EntityContainer Name="appdataModelStoreContainer">
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
@@ -26,23 +26,23 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="appdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="appdataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Events" EntityType="appdataModel.Event" />
+        </EntityContainer>
         <EntityType Name="Event">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="eventId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="AllDay" Type="Boolean" />
-          <Property Name="Start" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="End" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Url" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Editable" Type="Boolean" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="EventId" Type="Int32" />
+          <Property Name="eventId" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="allDay" Type="Boolean" />
+          <Property Name="start" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="end" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="editable" Type="Boolean" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="appdataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Events" EntityType="Self.Event" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -52,15 +52,15 @@
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="appdataModel.Event">
               <MappingFragment StoreEntitySet="Events">
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="AllDay" ColumnName="AllDay" />
-                <ScalarProperty Name="Start" ColumnName="Start" />
-                <ScalarProperty Name="End" ColumnName="End" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Editable" ColumnName="Editable" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="editable" ColumnName="editable" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="allDay" ColumnName="allDay" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

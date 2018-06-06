@@ -72,8 +72,15 @@ $('#calendar-dynamic').fullCalendar({
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listWeek'
     },
-    defaultDate: '2018-03-12',
+    defaultDate: '2018-06-12',
     navLinks: true, // can click day/week names to navigate views
     editable: true,
     eventLimit: true // allow "more" link when too many events    
+});
+
+$('#loadData').click(function () {
+    $.getJSON(getEvents, null, function (data) {
+        $('#calendar-dynamic').fullCalendar('renderEvents', data, true);
+        //$('#calendar-dynamic').fullCalendar('rerenderEvents');
+    });
 });

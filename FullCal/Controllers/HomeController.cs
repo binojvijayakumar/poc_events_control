@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FullCal.Data_Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,18 +19,11 @@ namespace FullCal.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public JsonResult GetEvents()
         {
-            ViewBag.Message = "Your application description page.";
+            appdataEntities entity = new appdataEntities();
+            return Json(entity.Events, JsonRequestBehavior.AllowGet);
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }
